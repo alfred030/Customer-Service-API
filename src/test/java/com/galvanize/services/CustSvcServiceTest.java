@@ -104,9 +104,10 @@ class CustSvcServiceTest {
         assertEquals(3, notes.size());
         boolean found = false;
         for(ServiceNote note : notes){
-            if(note.getCreatedBy().equals("CUSTOMER") &&
-               note.getNote().equals(PARAGRAPH)){
+            if (note.getCreatedBy().equals("CUSTOMER") &&
+                    note.getNote().equals(PARAGRAPH)) {
                 found = true;
+                break;
             }
         }
         assertTrue(found);
@@ -132,8 +133,10 @@ class CustSvcServiceTest {
         // Check that note was added.
         boolean found = false;
         for(ServiceNote note : ticket.getNotes()){
-            if (note.getCreatedBy().equals("CUSTOMER") && note.getNote().equals(resolutionNote))
+            if (note.getCreatedBy().equals("CUSTOMER") && note.getNote().equals(resolutionNote)) {
                 found = true;
+                break;
+            }
         }
         assertTrue(found);
         System.out.println(ticket);
